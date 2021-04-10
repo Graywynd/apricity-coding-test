@@ -5,7 +5,9 @@ const censusController = require('./controller');
 module.exports = () => {
   const router = express.Router();
 
-  router.get('/', censusController.getInfo);
+  router.get('/', censusController.getAll);
+
+  router.get('/:column', censusController.validateColumnData ,censusController.getColumnInfo);
 
   return router;
 };
